@@ -29,7 +29,7 @@ fi
 # if not already installed, then get the repo and run the install script
 if [ "$is_already_installed" = false ] ; then
     pip3 install pygame # pygame is used for audio playback
-    git clone https://github.com/timo-quinn/avian-rpi.git .
+    git clone https://github.com/timo-quinn/avian-rpi.git
     cd /home/pi/Desktop/avian-rpi/
     
     cd /home/pi/Desktop/
