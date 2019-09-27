@@ -17,6 +17,8 @@ def play_sample():
 
 play_beep()
 
+play_sample()
+
 while pygame.mixer.music.get_busy() == True:
   print("still playing")
   time.sleep(5)

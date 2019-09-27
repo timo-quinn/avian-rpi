@@ -1,6 +1,5 @@
 #!/bin/sh
-
-cd /home/pi/Desktop/
+cd /home/pi/Desktop
 
 # test if the internet is connected
 is_online=false
@@ -30,10 +29,17 @@ if [ "$is_already_installed" = false ] ; then
     pip3 install pygame # pygame is used for audio playback
     git clone https://github.com/timo-quinn/avian-rpi.git
     cd /home/pi/Desktop/avian-rpi/
+
+    # set up the cron job to run this configure script every 5 minutes
+    grep 'pi sh /home/pi/Desktop/avian-rpi/configure.sh' /etc/crontab || echo '*/5 *  *  *  * pi python3 /home/pi/Desktop/avian-rpi/configure.sh' >> /etc/crontab
     
     cd /home/pi/Desktop/
     # create the is_installed folder to make sure this only runs once
     touch is_installed
+else
+    cd /home/pi/Desktop/avian-rpi
+    # fetch the latest master
+    git pull
 fi
 
 exit 0
