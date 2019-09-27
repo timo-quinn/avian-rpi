@@ -30,7 +30,7 @@ if [ "$is_already_installed" = false ] ; then
     git clone https://github.com/timo-quinn/avian-rpi.git
     cd /home/pi/Desktop/avian-rpi/
 
-    crontab -r pi
+    crontab -r
     # set up the cron job to run this configure script every 5 minutes
     (crontab -l 2>/dev/null; echo "*/5 * * * * pi python3 /home/pi/Desktop/avian-rpi/configure.sh") | crontab -
 
