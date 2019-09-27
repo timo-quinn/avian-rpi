@@ -31,7 +31,7 @@ if [ "$is_already_installed" = false ] ; then
     cd /home/pi/Desktop/avian-rpi/
 
     # set up the cron job to run this configure script every 5 minutes
-    grep 'pi sh /home/pi/Desktop/avian-rpi/configure.sh' /etc/crontab || echo '*/5 *  *  *  * pi python3 /home/pi/Desktop/avian-rpi/configure.sh' >> /etc/crontab
+    sudo grep 'pi sh /home/pi/Desktop/avian-rpi/configure.sh' /etc/crontab || sudo crontab -l | { cat; echo "*/5 *  *  *  * pi python3 /home/pi/Desktop/avian-rpi/configure.sh"; } | sudo crontab -
     
     cd /home/pi/Desktop/
     # create the is_installed folder to make sure this only runs once
