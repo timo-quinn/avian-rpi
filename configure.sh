@@ -1,5 +1,4 @@
 #!/bin/sh
-sudo su
 
 cd /home/pi/Desktop/
 
