@@ -31,13 +31,7 @@ if [ "$is_already_installed" = false ] ; then
     cd /home/pi/Desktop/avian-rpi/
 
     # set up the cron job to run this configure script every 5 minutes
-    # write out current crontab
-    crontab -l > mycron
-    # echo new cron into cron file
-    echo "*/5 *  *  *  * pi python3 /home/pi/Desktop/avian-rpi/configure.sh" >> mycron
-    # install new cron file
-    crontab mycron
-    rm mycron -f
+    (crontab -l 2>/dev/null; echo "*/5 * * * * pi python3 /home/pi/Desktop/avian-rpi/configure.sh") | crontab -
 
     cd /home/pi/Desktop/
     # create the is_installed folder to make sure this only runs once
