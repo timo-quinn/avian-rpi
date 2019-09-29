@@ -5,6 +5,9 @@ cd /home/pi/Desktop
 is_online=false
 is_already_installed=false
 
+git config --global user.email "none@none.com"
+git config --global user.name "none"
+
 # testing if there is internet
 wget -q --spider http://google.com
 if [ $? -eq 0 ]; then
@@ -27,9 +30,6 @@ fi
 
 # if not already installed, then get the repo and run the install script
 if [ "$is_already_installed" = false ] ; then
-    git config --global user.email "none"
-    git config --global user.name "none"
-
     pip3 install pygame # pygame is used for audio playback
     git clone https://github.com/timo-quinn/avian-rpi.git
     cd /home/pi/Desktop/avian-rpi/
@@ -42,7 +42,7 @@ if [ "$is_already_installed" = false ] ; then
 
     sudo /bin/cp -f rc.local /etc/rc.local
 
-    cp -f default_state.json state.json
+    /bin/cp -f /home/pi/Desktop/avian-rpi/default_state.json /home/pi/Desktop/avian-rpi/state.json
 
     # two beeps to mark that it's configured
     python3 play_beep.py
