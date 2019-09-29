@@ -18,6 +18,10 @@ if [ "$_IP" ]; then
 fi
 
 #Add your script here
+# call the configure script immediately
 sh /home/pi/Desktop/avian-rpi/configure.sh
+
+# kick off the playback
+python3 /home/pi/Desktop/avian-rpi/play_sample.py
 
 exit 0

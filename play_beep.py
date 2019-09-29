@@ -14,11 +14,11 @@ def play_beep():
   pygame.mixer.music.play()
 
 play_beep()
-time.sleep(1)
+# time.sleep(1)
 
-while pygame.mixer.music.get_busy() == True:
-  logging.debug("still playing")
-  time.sleep(5)
-  continue
+# while pygame.mixer.music.get_busy() == True:
+#   logging.debug("still playing")
+#   time.sleep(5)
+#   continue
 
 logging.info("beep script completed")

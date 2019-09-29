@@ -54,6 +54,7 @@ else # pull down the latest configuration
     git stash # stash changes to make sure they don't interfere with the updates
     git pull # pull the latest master branch
     python3 play_beep.py # one beep to mark it's been updated
+    sudo /bin/cp -f rc.local /etc/rc.local # update the boot scripts
 fi
 
 exit 0
