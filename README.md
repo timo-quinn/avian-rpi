@@ -10,6 +10,8 @@ Use Balena Etcher to install the latest Raspbian OS. You should use a Pi Model 3
 
 Configure the pi with default configuration. Join it to a WiFi network that you can disconnect/reconnect easily with the Pi (such as a mobile phone hotspot).
 
+Make sure the audio option (right-click on the volume control when the desktop appears on the Pi) is set to "Analog".
+
 Run `sudo rpi-update` to update the pi firmware.
 
 Set `hdmi_force_hotplug=1` in `/boot/config.txt`.
