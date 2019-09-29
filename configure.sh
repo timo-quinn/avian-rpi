@@ -37,10 +37,15 @@ if [ "$is_already_installed" = false ] ; then
     cd /home/pi/Desktop/
     # create the is_installed folder to make sure this only runs once
     touch is_installed
-else
+
+    # two beeps to mark that it's configured
+    python3 avian-rpi/play_beep.py
+    python3 avian-rpi/play_beep.py
+else # pull down the latest configuration
     cd /home/pi/Desktop/avian-rpi
-    # fetch the latest master
     git pull
+    # one beep to mark it's been updated
+    python3 avian-rpi/play_beep.py
 fi
 
 exit 0
