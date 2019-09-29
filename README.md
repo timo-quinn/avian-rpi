@@ -4,6 +4,14 @@ Runs `sample.mp3` on a defined schedule.
 
 Current sample.mp3 is `https://macaulaylibrary.org/asset/229691`.
 
+## Pre-Installation
+
+Use Balena Etcher to install the latest Raspbian OS. You should use a Pi Model 3 or later so you have WiFi to make it easier to update the device.
+
+Run `sudo rpi-update` to update the pi firmware.
+
+Set `hdmi_force_hotplug=1` in `/boot/config.txt`.
+
 ## Installation
 
 Once this is run, it will run `configure.sh` every 5 minutes if there is an internet connection.
