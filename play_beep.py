@@ -3,7 +3,7 @@ import pygame
 import time
 import logging
 
-logging.basicConfig(filename='/home/pi/Desktop/beep.log', level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.basicConfig(filename='/home/pi/Desktop/avian-rpi/beep.log', level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
 logging.info("starting beep script")
 pygame.mixer.init()
