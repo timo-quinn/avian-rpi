@@ -30,7 +30,3 @@ rm -f configure.sh
 wget https://raw.githubusercontent.com/timo-quinn/avian-rpi/master/configure.sh
 sh configure.sh
 ```
-
-## Troubleshooting
-
-
