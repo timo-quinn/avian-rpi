@@ -5,10 +5,10 @@ import time
 import logging
 import json
 
-repo_dir = '/home/pi/Desktop/avian-rpi/'
-desktop_dir = '/home/pi/Desktop/'
-# repo_dir = ''
-# desktop_dir = ''
+# repo_dir = '/home/pi/Desktop/avian-rpi/'
+# desktop_dir = '/home/pi/Desktop/'
+repo_dir = ''
+desktop_dir = ''
 log_file_name = desktop_dir + 'play_sample.log'
 print(repo_dir)
 print(desktop_dir)
@@ -18,7 +18,7 @@ logging.basicConfig(filename=log_file_name, level=logging.DEBUG, format='%(ascti
 
 def write_state(state_to_write):
   to_write = state_to_write
-  to_write["last_run_time"] = datetime.now().__str__()
+  to_write["last_run_time"] = datetime.now().timestamp()
   with open(desktop_dir + 'state.json', 'w') as outfile:
     json.dump(to_write, outfile, indent=4, separators=(',', ': '))
 
@@ -40,7 +40,7 @@ last_run_timestamp = run_state['last_run_time']
 current_time = datetime.now()
 
 if last_run_timestamp != "":
-  last_run_time = datetime.fromisoformat(last_run_timestamp)
+  last_run_time = datetime.fromtimestamp(last_run_timestamp)
 else:
   last_run_time = datetime.now()
   write_state(run_state)
