@@ -34,7 +34,7 @@ if [ "$is_already_installed" = false ] ; then
     # purge crontab
     crontab -r
     # set up the cron job to run this configure script every 5 minutes
-    (crontab -l 2>/dev/null; echo "*/5 * * * * pi python3 /home/pi/Desktop/avian-rpi/configure.sh") | crontab -
+    (crontab -l 2>/dev/null; echo "*/5 * * * * sh /home/pi/Desktop/avian-rpi/configure.sh") | crontab -
 
     sudo /bin/cp -f rc.local /etc/rc.local
 
