@@ -42,7 +42,7 @@ if [ "$is_already_installed" = false ] ; then
 
     sudo /bin/cp -f rc.local /etc/rc.local
 
-    /bin/cp -f /home/pi/Desktop/avian-rpi/default_state.json /home/pi/Desktop/avian-rpi/state.json
+    /bin/cp -f /home/pi/Desktop/avian-rpi/default_state.json /home/pi/Desktop/state.json
 
     # two beeps to mark that it's configured
     python3 play_beep.py

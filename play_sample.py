@@ -5,14 +5,14 @@ import time
 import logging
 import json
 
-logging.basicConfig(filename='/home/pi/Desktop/avian-rpi/sample.log', level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.basicConfig(filename='/home/pi/Desktop/play_sample.log', level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
 with open('/home/pi/Desktop/avian-rpi/config.json') as config_file:
   config = json.load(config_file)
 
 
 try:
-  with open('/home/pi/Desktop/avian-rpi/state.json') as state_file:
+  with open('/home/pi/Desktop/state.json') as state_file:
     run_state = json.load(state_file)
 except:
   with open('/home/pi/Desktop/avian-rpi/default_state.json') as state_file:
@@ -33,7 +33,7 @@ minutes_difference = (current_time - last_run_time).seconds / 60.0
 def write_state(state_to_write):
   to_write = state_to_write
   to_write["last_run_time"] = datetime.now().__str__()
-  with open('/home/pi/Desktop/avian-rpi/state.json', 'w') as outfile:
+  with open('/home/pi/Desktop/state.json', 'w') as outfile:
     json.dump(to_write, outfile, indent=4, separators=(',', ': '))
 
 # we only execute the script if the last run time is greater than the configured frequency
