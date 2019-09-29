@@ -5,10 +5,10 @@ import time
 import logging
 import json
 
-# repo_dir = '/home/pi/Desktop/avian-rpi/'
-# desktop_dir = '/home/pi/Desktop/'
-repo_dir = ''
-desktop_dir = ''
+repo_dir = '/home/pi/Desktop/avian-rpi/'
+desktop_dir = '/home/pi/Desktop/'
+# repo_dir = ''
+# desktop_dir = ''
 log_file_name = desktop_dir + 'play_sample.log'
 print(repo_dir)
 print(desktop_dir)
