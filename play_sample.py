@@ -10,8 +10,14 @@ logging.basicConfig(filename='/home/pi/Desktop/avian-rpi/sample.log', level=logg
 with open('/home/pi/Desktop/avian-rpi/config.json') as config_file:
   config = json.load(config_file)
 
-with open('/home/pi/Desktop/avian-rpi/state.json') as state_file:
-  run_state = json.load(state_file)
+
+try:
+  with open('/home/pi/Desktop/avian-rpi/state.json') as state_file:
+    run_state = json.load(state_file)
+except:
+  with open('/home/pi/Desktop/avian-rpi/default_state.json') as state_file:
+    run_state = json.load(state_file)
+
 
 frequency = config['frequency']
 last_run_timestamp = run_state['last_run_time']
