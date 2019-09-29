@@ -8,17 +8,10 @@ logging.basicConfig(filename='/home/pi/Desktop/beep.log', level=logging.DEBUG, f
 logging.info("starting beep script")
 pygame.mixer.init()
 
-def play_beep():
-  logging.info("playing beep")
-  pygame.mixer.music.load('/home/pi/Desktop/avian-rpi/beep2.mp3')
-  pygame.mixer.music.play()
+logging.info("playing beep")
+pygame.mixer.music.load('/home/pi/Desktop/avian-rpi/beep2.mp3')
+pygame.mixer.music.play()
 
-play_beep()
-# time.sleep(1)
-
-# while pygame.mixer.music.get_busy() == True:
-#   logging.debug("still playing")
-#   time.sleep(5)
-#   continue
+time.sleep(1)
 
 logging.info("beep script completed")
