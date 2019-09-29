@@ -22,6 +22,6 @@ fi
 sh /home/pi/Desktop/avian-rpi/configure.sh
 
 # kick off the playback
-python3 /home/pi/Desktop/avian-rpi/play_sample.py
+sh /home/pi/Desktop/avian-rpi/play_sample.sh
 
 exit 0
