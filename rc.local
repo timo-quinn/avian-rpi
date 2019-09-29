@@ -21,7 +21,4 @@ fi
 # call the configure script immediately
 sh /home/pi/Desktop/avian-rpi/configure.sh
 
-# kick off the playback
-sh /home/pi/Desktop/avian-rpi/play_sample.sh
-
 exit 0
