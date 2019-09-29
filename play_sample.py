@@ -24,7 +24,7 @@ last_run_timestamp = run_state['last_run_time']
 current_time = datetime.now()
 
 if last_run_timestamp != "":
-  last_run_time = datetime.fromtimestamp(last_run_timestamp)
+  last_run_time = datetime.fromisoformat(last_run_timestamp)
 else:
   last_run_time = datetime.now()
 
