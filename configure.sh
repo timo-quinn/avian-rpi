@@ -29,23 +29,27 @@ if [ "$is_already_installed" = false ] ; then
     pip3 install pygame # pygame is used for audio playback
     git clone https://github.com/timo-quinn/avian-rpi.git
     cd /home/pi/Desktop/avian-rpi/
-
+    # make all the files executable
+    chmod -R +x .
+    # purge crontab
     crontab -r
     # set up the cron job to run this configure script every 5 minutes
     (crontab -l 2>/dev/null; echo "*/5 * * * * pi python3 /home/pi/Desktop/avian-rpi/configure.sh") | crontab -
 
-    cd /home/pi/Desktop/
-    # create the is_installed folder to make sure this only runs once
-    touch is_installed
+    sudo /bin/cp -f rc.local /etc/rc.local
 
     # two beeps to mark that it's configured
-    python3 avian-rpi/play_beep.py
-    python3 avian-rpi/play_beep.py
+    python3 play_beep.py
+    python3 play_beep.py
+
+    # create the is_installed folder to make sure this only runs once
+    cd /home/pi/Desktop/
+    touch is_installed
 else # pull down the latest configuration
     cd /home/pi/Desktop/avian-rpi
     git pull
     # one beep to mark it's been updated
-    python3 avian-rpi/play_beep.py
+    python3 play_beep.py
 fi
 
 exit 0
