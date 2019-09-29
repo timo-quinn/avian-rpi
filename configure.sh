@@ -26,6 +26,9 @@ fi
 
 # if not already installed, then get the repo and run the install script
 if [ "$is_already_installed" = false ] ; then
+    git config --global user.email "none"
+    git config --global user.name "none"
+
     pip3 install pygame # pygame is used for audio playback
     git clone https://github.com/timo-quinn/avian-rpi.git
     cd /home/pi/Desktop/avian-rpi/
@@ -47,9 +50,10 @@ if [ "$is_already_installed" = false ] ; then
     touch is_installed
 else # pull down the latest configuration
     cd /home/pi/Desktop/avian-rpi
-    git pull
-    # one beep to mark it's been updated
-    python3 play_beep.py
+
+    git stash # stash changes to make sure they don't interfere with the updates
+    git pull # pull the latest master branch
+    python3 play_beep.py # one beep to mark it's been updated
 fi
 
 exit 0
