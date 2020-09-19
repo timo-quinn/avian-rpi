@@ -24,7 +24,7 @@ fi
 
 # if not online, return an error and stop
 if [ "$is_online" = false ] ; then
-    python3 play_sample.py # play the sample
+    python3 /home/pi/Desktop/avian-rpi/play_sample.py # play the sample
     exit 1
 fi
 
@@ -45,8 +45,8 @@ if [ "$is_already_installed" = false ] ; then
     /bin/cp -f /home/pi/Desktop/avian-rpi/default_state.json /home/pi/Desktop/state.json
 
     # two beeps to mark that it's configured
-    python3 play_beep.py
-    python3 play_beep.py
+    python3 /home/pi/Desktop/avian-rpi/play_beep.py
+    python3 /home/pi/Desktop/avian-rpi/play_beep.py
 
     # create the is_installed folder to make sure this only runs once
     cd /home/pi/Desktop/
@@ -56,8 +56,8 @@ else # pull down the latest configuration
 
     git stash # stash changes to make sure they don't interfere with the updates
     git pull # pull the latest master branch
-    python3 play_beep.py # one beep to mark it's been updated
-    python3 play_sample.py # play the sample
+    python3 /home/pi/Desktop/avian-rpi/play_beep.py # one beep to mark it's been updated
+    python3 /home/pi/Desktop/avian-rpi/play_sample.py # play the sample
     sudo /bin/cp -f rc.local /etc/rc.local # update the boot scripts
 fi
 
